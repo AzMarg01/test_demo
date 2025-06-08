@@ -1,0 +1,44 @@
+trigger:
+- main
+
+pool:
+  name: Default  # This is your self-hosted agent pool name
+
+variables:
+  resultsFolder: '$(Build.ArtifactStagingDirectory)/results'
+
+steps:
+- task: PowerShell@2
+  displayName: 'Run SoapUI Tests'
+  inputs:
+    targetType: 'inline'
+    script: |
+      & 'C:\Program Files\SmartBear\SoapUI-5.7.0\bin\testrunner.bat' `
+      -j -f $(resultsFolder) `
+      $(Build.SourcesDirectory)\tests\soapui\MyProject.xml
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Test Results (.xlsx)'
+  inputs:
+    PathtoPublish: '$(resultsFolder)'
+    ArtifactName: 'SoapUIResults'
+
+- task: PowerShell@2
+  displayName: 'Convert XLSX to HTML'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $excel = New-Object -ComObject Excel.Application
+      $excel.Visible = $false
+      $workbook = $excel.Workbooks.Open("$(resultsFolder)\results.xlsx")
+      $worksheet = $workbook.Sheets.Item(1)
+      $htmlPath = "$(resultsFolder)\results.html"
+      $worksheet.SaveAs($htmlPath, 44)  # 44 = xlHtml
+      $workbook.Close($false)
+      $excel.Quit()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish HTML Report'
+  inputs:
+    PathtoPublish: '$(resultsFolder)\results.html'
+    ArtifactName: 'SoapUIHTMLReport'
