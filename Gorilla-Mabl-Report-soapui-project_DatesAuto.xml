@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="0a2be2d6-b7cb-4fbb-9586-3f3f2c447118" activeEnvironment="Default" name="Gorilla Mabl Report-DatesAuto" soapui-version="5.8.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" encryptionMode="Not encrypted" projectVersion="" updated="3.60.0 2025-04-23T14:13:38Z" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="GorillaReporting"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="singleRowTestCase"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:RestService" id="0ae63762-0acb-40d3-b663-b25597792ff8" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://api.mabl.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://api.mabl.com</con:endpoint></con:endpoints><con:resource name="TestRuns" path="/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns" id="31c5d256-a20c-40c2-a59c-4e33da9e5b2a"><con:settings/><con:parameters><con:parameter><con:name>earliest_run_start_time</con:name><con:value>1747015200000</con:value><con:style>QUERY</con:style><con:default>1747015200000</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>limit</con:name><con:value>500</con:value><con:style>QUERY</con:style><con:default>500</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Accept</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>latest_run_start_time</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>plan_id</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="TestRunsForSpecificPlan" id="5572b7cb-4739-4da9-885b-70e217f9996f" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tes="https://api.mabl.com/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns">tes:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html; charset=UTF-8</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:tes="https://api.mabl.com/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns">tes:Fault</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="PlanTestRuns" id="4312d809-03e2-4db4-8738-ef68c096c5ed" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://api.mabl.com</con:endpoint><con:request/><con:originalUri>https://api.mabl.com/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2V5Ok5NekdOQlJYTnlGRkhOYU5MMzBHQnc="/>
+  <con:entry key="latest_run_start_time" value="${Properties#latest_start_date}"/>
+  <con:entry key="earliest_run_start_time" value="${Properties#earliest_start_date}"/>
+  <con:entry key="Accept" value="application/json"/>
+</con:parameters><con:parameterOrder><con:entry>limit</con:entry><con:entry>Authorization</con:entry><con:entry>Accept</con:entry><con:entry>earliest_run_start_time</con:entry><con:entry>latest_run_start_time</con:entry><con:entry>plan_id</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="4373cc8c-2267-496b-abe8-a156edc0e28b" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://dev.azure.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://dev.azure.com</con:endpoint></con:endpoints><con:resource name="TestCase" path="/SefeEnergy/One%20Reef%20Programme/_apis/test/Plans/143907/Suites/146291/testcases" id="6fc02dfc-299f-408e-95ed-b7624371f7ff"><con:settings/><con:parameters><con:parameter><con:name>api-version</con:name><con:value>7.0</con:value><con:style>QUERY</con:style><con:default>7.0</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="TestCasesNum" id="bd2878b3-44be-463c-9377-dfaf78ed2a0d" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:dev="https://azure.microsoft.com/en-us/products/devops/">dev:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>203</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8; api-version=7.0</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:dev="https://azure.microsoft.com/en-us/products/devops/">dev:Response</con:element></con:representation><con:request name="getTCsNumGasForcastAzure" id="5c2f5234-1252-4794-ad10-74d19b5fb9c7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Accept" value="application/json"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://dev.azure.com</con:endpoint><con:request/><con:originalUri>https://azure.microsoft.com/en-us/products/devops/</con:originalUri><con:credentials><con:username>user</con:username><con:password>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:password><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic dXNlcjpsOTllNVRremRSVnBGczBGMThCclpPSFVGRkxINkc5MG9mSXZRaUoyTHU1bWpFeHNqeHJPSlFRSjk5QkZBQ0FBQUFBdGZyaERBQUFTQVpETzFyTFI="/>
+  <con:entry key="api-version" value="7.0"/>
+</con:parameters><con:parameterOrder><con:entry>api-version</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="TestCase" path="/SefeEnergy/One%20Reef%20Programme/_apis/test/Plans/143907/Suites/146290/testcases" id="6fc02dfc-299f-408e-95ed-b7624371f7ff"><con:settings/><con:parameters><con:parameter><con:name>api-version</con:name><con:value>7.0</con:value><con:style>QUERY</con:style><con:default>7.0</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="TestCasesNum" id="bd2878b3-44be-463c-9377-dfaf78ed2a0d" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:dev="https://azure.microsoft.com/en-us/products/devops/">dev:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>203</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8; api-version=7.0</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:dev="https://azure.microsoft.com/en-us/products/devops/">dev:Response</con:element></con:representation><con:request name="getTCsNumGasPricingAzure" id="5c2f5234-1252-4794-ad10-74d19b5fb9c7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Accept" value="application/json"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://dev.azure.com</con:endpoint><con:request/><con:originalUri>https://azure.microsoft.com/en-us/products/devops/</con:originalUri><con:credentials><con:username>user</con:username><con:password>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:password><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic dXNlcjpsOTllNVRremRSVnBGczBGMThCclpPSFVGRkxINkc5MG9mSXZRaUoyTHU1bWpFeHNqeHJPSlFRSjk5QkZBQ0FBQUFBdGZyaERBQUFTQVpETzFyTFI="/>
+  <con:entry key="api-version" value="7.0"/>
+</con:parameters><con:parameterOrder><con:entry>api-version</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="TestCase" path="/SefeEnergy/One%20Reef%20Programme/_apis/test/Plans/143907/Suites/146289/testcases" id="6fc02dfc-299f-408e-95ed-b7624371f7ff"><con:settings/><con:parameters><con:parameter><con:name>api-version</con:name><con:value>7.0</con:value><con:style>QUERY</con:style><con:default>7.0</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="TestCasesNum" id="bd2878b3-44be-463c-9377-dfaf78ed2a0d" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:dev="https://azure.microsoft.com/en-us/products/devops/">dev:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>203</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8; api-version=7.0</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:dev="https://azure.microsoft.com/en-us/products/devops/">dev:Response</con:element></con:representation><con:request name="getTCsNumPowerForecastAzure" id="5c2f5234-1252-4794-ad10-74d19b5fb9c7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Accept" value="application/json"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://dev.azure.com</con:endpoint><con:request/><con:originalUri>https://azure.microsoft.com/en-us/products/devops/</con:originalUri><con:credentials><con:username>user</con:username><con:password>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:password><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic dXNlcjpsOTllNVRremRSVnBGczBGMThCclpPSFVGRkxINkc5MG9mSXZRaUoyTHU1bWpFeHNqeHJPSlFRSjk5QkZBQ0FBQUFBdGZyaERBQUFTQVpETzFyTFI="/>
+  <con:entry key="api-version" value="7.0"/>
+</con:parameters><con:parameterOrder><con:entry>api-version</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="TestCase" path="/SefeEnergy/One%20Reef%20Programme/_apis/test/Plans/143907/Suites/146288/testcases" id="6fc02dfc-299f-408e-95ed-b7624371f7ff"><con:settings/><con:parameters><con:parameter><con:name>api-version</con:name><con:value>7.0</con:value><con:style>QUERY</con:style><con:default>7.0</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="TestCasesNum" id="bd2878b3-44be-463c-9377-dfaf78ed2a0d" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:dev="https://azure.microsoft.com/en-us/products/devops/">dev:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>203</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8; api-version=7.0</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:dev="https://azure.microsoft.com/en-us/products/devops/">dev:Response</con:element></con:representation><con:request name="getTCsNumPowerPricingAzure" id="5c2f5234-1252-4794-ad10-74d19b5fb9c7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Accept" value="application/json"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://dev.azure.com</con:endpoint><con:request/><con:originalUri>https://azure.microsoft.com/en-us/products/devops/</con:originalUri><con:credentials><con:username>user</con:username><con:password>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:password><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic dXNlcjpsOTllNVRremRSVnBGczBGMThCclpPSFVGRkxINkc5MG9mSXZRaUoyTHU1bWpFeHNqeHJPSlFRSjk5QkZBQ0FBQUFBdGZyaERBQUFTQVpETzFyTFI="/>
+  <con:entry key="api-version" value="7.0"/>
+</con:parameters><con:parameterOrder><con:entry>api-version</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="ce8576ee-024b-4dfa-8ad9-9a469d6348a1" name="GorillaReporting-AutoDates"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="03428761-e860-4f86-a8dc-aa9212c7c66c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Gorilla Stand-Alone" searchProperties="true"><con:settings/><con:testStep type="groovy" name="getSystemToday'sDate" id="d425bba9-4b14-4622-97a8-dbc520d13dbc"><con:settings/><con:config><script>import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
+def myTestCase = context.testCase
+def propTestStep = myTestCase.getTestStepByName("Properties") // get the Property TestStep object
+
+if (propTestStep == null) {
+    log.error("Property TestStep named 'Properties' not found!")
+    return
+}
+
+// Define date formatter
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy")
+
+// Get today's date
+LocalDate today = LocalDate.now()
+def formattedDate = today.format(formatter)
+
+// Go back 4 days
+LocalDate fourDaysAgo = today.minusDays(4)
+def formattedDateA = fourDaysAgo.format(formatter)
+
+// Print the dates
+log.info("Today's date: " + formattedDate)
+log.info("Date 4 days ago: " + formattedDateA)
+
+// Set properties
+propTestStep.setPropertyValue("Week_start_date", formattedDateA)
+propTestStep.setPropertyValue("Week_end_date", formattedDate)
+
+// Verify properties were updated
+def verifyStartDate = propTestStep.getPropertyValue("Week_start_date")
+def verifyEndDate = propTestStep.getPropertyValue("Week_end_date")
+
+if (verifyStartDate == formattedDateA &amp;&amp; verifyEndDate == formattedDate) {
+    log.info("Properties updated successfully.")
+} else {
+    log.error("Failed to update properties. Current values - Week_start_date: " + verifyStartDate + ", Week_end_date: " + verifyEndDate)
+}
+</script></con:config></con:testStep><con:testStep type="properties" name="Properties" id="5f1dc20a-5e2d-4db0-8056-36d90f2811a0"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>earliest_start_date</con:name><con:value>1749337200000</con:value></con:property><con:property><con:name>latest_start_date</con:name><con:value>1749365700000</con:value></con:property><con:property><con:name>Week_start_date</con:name><con:value>June 04, 2025</con:value></con:property><con:property><con:name>Week_end_date</con:name><con:value>June 08, 2025</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="restrequest" name="GetPlanTestResultsGasForecast" id="8e48345e-5c42-4a87-adee-ef3a675411ab"><con:settings/><con:config service="https://api.mabl.com" resourcePath="/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns" methodName="TestRunsForSpecificPlan" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetPlanTestResultsGasForecast" id="4312d809-03e2-4db4-8738-ef68c096c5ed" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://api.mabl.com</con:endpoint><con:request/><con:originalUri>https://api.mabl.com/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2V5Ok5NekdOQlJYTnlGRkhOYU5MMzBHQnc="/>
+  <con:entry key="plan_id_GasFcst" value="N9Ra2HBGj9rVMktWG2INhA-p"/>
+  <con:entry key="latest_run_start_time" value="${Properties#latest_start_date}"/>
+  <con:entry key="earliest_run_start_time" value="${Properties#earliest_start_date}"/>
+  <con:entry key="Accept" value="application/json"/>
+  <con:entry key="limit" value="500"/>
+  <con:entry key="plan_id" value="N9Ra2HBGj9rVMktWG2INhA-p"/>
+</con:parameters><con:parameterOrder><con:entry>limit</con:entry><con:entry>Authorization</con:entry><con:entry>Accept</con:entry><con:entry>earliest_run_start_time</con:entry><con:entry>latest_run_start_time</con:entry><con:entry>plan_id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GetPlanTestResultsGasPricing" id="afbc82e3-a50f-43bf-a6da-10cfbe651bcf"><con:settings/><con:config service="https://api.mabl.com" resourcePath="/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns" methodName="TestRunsForSpecificPlan" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetPlanTestResultsGasPricing" id="4312d809-03e2-4db4-8738-ef68c096c5ed" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://api.mabl.com</con:endpoint><con:request/><con:originalUri>https://api.mabl.com/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2V5Ok5NekdOQlJYTnlGRkhOYU5MMzBHQnc="/>
+  <con:entry key="plan_id_GasFcst" value="yW1HzVEJGOpbRGsAt0fXzQ-p"/>
+  <con:entry key="latest_run_start_time" value="${Properties#latest_start_date}"/>
+  <con:entry key="earliest_run_start_time" value="${Properties#earliest_start_date}"/>
+  <con:entry key="Accept" value="application/json"/>
+  <con:entry key="limit" value="500"/>
+  <con:entry key="plan_id" value="yW1HzVEJGOpbRGsAt0fXzQ-p"/>
+</con:parameters><con:parameterOrder><con:entry>limit</con:entry><con:entry>Authorization</con:entry><con:entry>Accept</con:entry><con:entry>earliest_run_start_time</con:entry><con:entry>latest_run_start_time</con:entry><con:entry>plan_id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GetPlanTestResultsPowerForecast" id="d45fd197-5b5d-4761-9556-08a0a597dcfb"><con:settings/><con:config service="https://api.mabl.com" resourcePath="/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns" methodName="TestRunsForSpecificPlan" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetPlanTestResultsPowerForecast" id="4312d809-03e2-4db4-8738-ef68c096c5ed" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://api.mabl.com</con:endpoint><con:request/><con:originalUri>https://api.mabl.com/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2V5Ok5NekdOQlJYTnlGRkhOYU5MMzBHQnc="/>
+  <con:entry key="latest_run_start_time" value="${Properties#latest_start_date}"/>
+  <con:entry key="earliest_run_start_time" value="${Properties#earliest_start_date}"/>
+  <con:entry key="Accept" value="application/json"/>
+  <con:entry key="plan_id" value="CUzFMsJnTCTBlPaWS2RPGQ-p"/>
+</con:parameters><con:parameterOrder><con:entry>limit</con:entry><con:entry>Authorization</con:entry><con:entry>Accept</con:entry><con:entry>earliest_run_start_time</con:entry><con:entry>latest_run_start_time</con:entry><con:entry>plan_id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GetPlanTestResultsPowerPricing" id="813a8333-7e2c-4cbc-9744-f729924c5c0f"><con:settings/><con:config service="https://api.mabl.com" resourcePath="/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns" methodName="TestRunsForSpecificPlan" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetPlanTestResultsPowerPricing" id="4312d809-03e2-4db4-8738-ef68c096c5ed" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://api.mabl.com</con:endpoint><con:request/><con:originalUri>https://api.mabl.com/results/workspace/YpY1Pm0gxSbyFGhJzimFtg-w/testRuns</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic a2V5Ok5NekdOQlJYTnlGRkhOYU5MMzBHQnc="/>
+  <con:entry key="plan_id_GasFcst" value="BgCy425EPfRrNueoj1wCHg-p"/>
+  <con:entry key="latest_run_start_time" value="${Properties#latest_start_date}"/>
+  <con:entry key="earliest_run_start_time" value="${Properties#earliest_start_date}"/>
+  <con:entry key="Accept" value="application/json"/>
+  <con:entry key="limit" value="500"/>
+  <con:entry key="plan_id" value="BgCy425EPfRrNueoj1wCHg-p"/>
+</con:parameters><con:parameterOrder><con:entry>limit</con:entry><con:entry>Authorization</con:entry><con:entry>Accept</con:entry><con:entry>earliest_run_start_time</con:entry><con:entry>latest_run_start_time</con:entry><con:entry>plan_id</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getTCsNumGasForcastAzure" id="50e8aadf-0dfd-487c-8a43-c11c6c86acea"><con:settings/><con:config service="https://dev.azure.com" resourcePath="/SefeEnergy/One%20Reef%20Programme/_apis/test/Plans/143907/Suites/146291/testcases" methodName="TestCasesNum" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getTCsNumGasForcastAzure" id="5c2f5234-1252-4794-ad10-74d19b5fb9c7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Accept" value="application/json"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://dev.azure.com</con:endpoint><con:request/><con:originalUri>https://azure.microsoft.com/en-us/products/devops/</con:originalUri><con:credentials><con:username>user</con:username><con:password>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:password><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic dXNlcjpsOTllNVRremRSVnBGczBGMThCclpPSFVGRkxINkc5MG9mSXZRaUoyTHU1bWpFeHNqeHJPSlFRSjk5QkZBQ0FBQUFBdGZyaERBQUFTQVpETzFyTFI="/>
+  <con:entry key="api-version" value="7.0"/>
+</con:parameters><con:parameterOrder><con:entry>api-version</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getTCsNumGasPricingAzure" id="1414ae36-4313-42b3-a2bf-73278d7f0ad9"><con:settings/><con:config service="https://dev.azure.com" resourcePath="/SefeEnergy/One%20Reef%20Programme/_apis/test/Plans/143907/Suites/146290/testcases" methodName="TestCasesNum" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getTCsNumGasPricingAzure" id="5c2f5234-1252-4794-ad10-74d19b5fb9c7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Accept" value="application/json"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://dev.azure.com</con:endpoint><con:request/><con:originalUri>https://azure.microsoft.com/en-us/products/devops/</con:originalUri><con:credentials><con:username>user</con:username><con:password>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:password><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic dXNlcjpsOTllNVRremRSVnBGczBGMThCclpPSFVGRkxINkc5MG9mSXZRaUoyTHU1bWpFeHNqeHJPSlFRSjk5QkZBQ0FBQUFBdGZyaERBQUFTQVpETzFyTFI="/>
+  <con:entry key="api-version" value="7.0"/>
+</con:parameters><con:parameterOrder><con:entry>api-version</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getTCsNumPowerForecastAzure" id="e3dcc631-e735-436b-a24f-d2e14a405f84"><con:settings/><con:config service="https://dev.azure.com" resourcePath="/SefeEnergy/One%20Reef%20Programme/_apis/test/Plans/143907/Suites/146289/testcases" methodName="TestCasesNum" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getTCsNumPowerForecastAzure" id="5c2f5234-1252-4794-ad10-74d19b5fb9c7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Accept" value="application/json"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://dev.azure.com</con:endpoint><con:request/><con:originalUri>https://azure.microsoft.com/en-us/products/devops/</con:originalUri><con:credentials><con:username>user</con:username><con:password>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:password><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic dXNlcjpsOTllNVRremRSVnBGczBGMThCclpPSFVGRkxINkc5MG9mSXZRaUoyTHU1bWpFeHNqeHJPSlFRSjk5QkZBQ0FBQUFBdGZyaERBQUFTQVpETzFyTFI="/>
+  <con:entry key="api-version" value="7.0"/>
+</con:parameters><con:parameterOrder><con:entry>api-version</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getTCsNumPowerPricingAzure" id="4c767940-723e-443f-9ff0-477c2804ab47"><con:settings/><con:config service="https://dev.azure.com" resourcePath="/SefeEnergy/One%20Reef%20Programme/_apis/test/Plans/143907/Suites/146288/testcases" methodName="TestCasesNum" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getTCsNumPowerPricingAzure" id="5c2f5234-1252-4794-ad10-74d19b5fb9c7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="Accept" value="application/json"/>&#13;
+  &lt;con:entry key="Content-Type" value="application/json"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://dev.azure.com</con:endpoint><con:request/><con:originalUri>https://azure.microsoft.com/en-us/products/devops/</con:originalUri><con:credentials><con:username>user</con:username><con:password>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:password><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic dXNlcjpsOTllNVRremRSVnBGczBGMThCclpPSFVGRkxINkc5MG9mSXZRaUoyTHU1bWpFeHNqeHJPSlFRSjk5QkZBQ0FBQUFBdGZyaERBQUFTQVpETzFyTFI="/>
+  <con:entry key="api-version" value="7.0"/>
+</con:parameters><con:parameterOrder><con:entry>api-version</con:entry><con:entry>Authorization</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="forecastGasRegression" id="27d8f960-f977-4ea9-9c30-5c14727f2edb"><con:settings/><con:config><script>import java.text.SimpleDateFormat
+
+import com.eviware.soapui.support.XmlHolder
+import java.io.File;
+import java.io.IOException;
+import jxl.*;
+import jxl.read.biff.BiffException;
+import jxl.write.WritableCellFormat;
+import jxl.write.WritableFont;
+import jxl.format.Colour;
+import jxl.format.Pattern;
+import jxl.write.Label;
+import jxl.write.*;
+import java.awt.Color;
+import groovy.json.JsonSlurper;
+import groovy.json.*;
+import org.json.JSONObject;
+
+import org.apache.poi.ss.usermodel.*
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import groovy.json.JsonSlurper
+
+def myTestCase = context.testCase
+propTestStep = myTestCase.getTestStepByName("Properties") // get the Property TestStep object
+headers=[]
+
+//Covert the week days into a long digit
+//def date1 = "May 16, 2025"
+//def date2 = "May 20, 2025"
+def week_start_date = propTestStep.getPropertyValue("Week_start_date").toString();
+log.info("Week_start_date: " + propTestStep.getPropertyValue("Week_start_date").toString());
+def week_end_date = propTestStep.getPropertyValue("Week_end_date").toString();
+log.info("Week_end_date: " + propTestStep.getPropertyValue("Week_end_date").toString());
+			
+def date1 = week_start_date
+def date2 = week_end_date
+
+def format = new SimpleDateFormat("MMMM dd, yyyy")
+def longDate1 = format.parse(date1).time
+def longDate2 = format.parse(date2).time
+
+log.info(longDate1)
+log.info(longDate2)
+
+//def startDate = 1746400800000
+def startDate = longDate1
+//def endDate = 1746774900000
+def endDate = longDate2
+def days = 5
+def dateFormat = new SimpleDateFormat("MMMM dd, yyyy hh:mm a")
+
+//# Store Current Dates in SoapUI Properties
+
+def workbook = new XSSFWorkbook()
+def sheet = workbook.createSheet("Gorilla Regression Results")
+
+// Create headers
+def headers = ["Week Days", "Regression Pack Name", "Total Cases", "Total Runs", "Pass", "Fail", "Not Run", "Environment"]
+def headerRow = sheet.createRow(2)
+headers.eachWithIndex { header, index ->
+    headerRow.createCell(index + 2).setCellValue(header)
+}
+
+def rowIndex = 3
+
+(0..&lt;days).each { day ->
+    def currentStartDate = new Date(startDate + (day * 24 * 60 * 60 * 1000))
+    def currentEndDate = new Date(startDate + (day * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000 + 55 * 60 * 1000))
+
+    def startTime = dateFormat.format(currentStartDate) + " to " + dateFormat.format(currentEndDate);
+    //log.info("Start: ${currentStartDate.time}, End: ${currentEndDate.time}")
+    log.info("Start: ${currentStartDate.time}, End: ${currentEndDate.time} - ${startTime}")
+    propTestStep.setPropertyValue("earliest_start_date", "${currentStartDate.time}")
+    propTestStep.setPropertyValue("latest_start_date", "${currentEndDate.time}")
+    
+    // Run the step 
+    testRunner.runTestStepByName("GetPlanTestResultsGasForecast")
+
+    def response = context.expand('${GetPlanTestResultsGasForecast#Response}').toString()
+    def slurper = new JsonSlurper()
+    def json = slurper.parseText(response)
+    JSONObject JsonObj = new JSONObject(json)
+
+    //Run Azure to get the number of test cases.
+    testRunner.runTestStepByName("getTCsNumGasForcastAzure")
+
+    def responseAzure = context.expand('${getTCsNumGasForcastAzure#Response}').toString()
+    def parser = new JsonSlurper()
+    def jsonAzure = parser.parseText(responseAzure)
+    def countAzure = jsonAzure.count
+    log.info("TestCaseNum: " + countAzure);
+
+    // Populate data
+    def planName = json.test_results[0].plan_name
+    def totalCases = json.number_of_runs
+    def passCount = json.test_results.count { it.outcome == "passed" }
+    def failCount = json.test_results.count { it.outcome == "failed" }
+    def notRunCount = json.test_results.count { it.outcome == "stopped" }
+    //Calculate the run time
+    def environmentName = json.test_results[0].environment_name
+
+    // Create a new row and populate it
+    def row = sheet.createRow(rowIndex++)
+    def inputDate = dateFormat.format(currentStartDate);
+    def convertedDate = convertDateFormat(inputDate)
+    row.createCell(2).setCellValue(convertedDate)  
+    row.createCell(3).setCellValue(planName)
+    row.createCell(4).setCellValue(countAzure)
+    row.createCell(5).setCellValue(totalCases)
+    row.createCell(6).setCellValue(passCount)
+    row.createCell(7).setCellValue(failCount)
+    row.createCell(8).setCellValue(notRunCount)
+    row.createCell(9).setCellValue(environmentName)
+
+    def testNames = JsonObj.test_results.collect { it.test_name }
+
+    testNames.each { name ->
+        log.info("Test Name: " + name)
+    } 
+
+    def countTestNames = json.test_results.collect { it.test_name }.size()
+
+    log.info "___________________________________________________________________________________________________________________________";
+
+    // Apply styles
+    if (failCount > 0) {
+        row.getCell(7).setCellStyle(createCellStyle(workbook, IndexedColors.RED))
+    }
+    if (passCount > 0) {
+        row.getCell(6).setCellStyle(createCellStyle(workbook, IndexedColors.LIME))
+    }
+    if (notRunCount > 0) {
+        row.getCell(8).setCellStyle(createCellStyle(workbook, IndexedColors.GREY))
+    }
+
+   // rowIndex++ // Leave an empty row
+}
+
+def createCellStyle(workbook, color) {
+    def style = workbook.createCellStyle()
+    style.setFillForegroundColor(color.index)
+    style.setFillPattern(FillPatternType.SOLID_FOREGROUND)
+    return style
+}
+
+FileOutputStream fileOut = new FileOutputStream("C:/Users/Azedd/OneDrive/Desktop/RunTests.xlsx")
+workbook.write(fileOut)
+fileOut.close()
+workbook.close()
+
+//Date conversion
+import java.text.SimpleDateFormat
+
+def convertDateFormat(String inputDate) {
+    def originalFormat = new SimpleDateFormat("MMMM dd, yyyy hh:mm a")
+    def targetFormat = new SimpleDateFormat("dd MMMM yyyy")
+    
+    def date = originalFormat.parse(inputDate)
+    return targetFormat.format(date)
+}
+</script></con:config></con:testStep><con:testStep type="groovy" name="pricingGasRegression" id="2b80220c-d512-42ae-8f25-d4febe6ad73b"><con:settings/><con:config><script>import java.text.SimpleDateFormat
+import com.eviware.soapui.support.XmlHolder
+import java.io.File;
+import java.io.IOException;
+import jxl.*;
+import jxl.read.biff.BiffException;
+import jxl.write.WritableCellFormat;
+import jxl.write.WritableFont;
+import jxl.format.Colour;
+import jxl.format.Pattern;
+import jxl.write.Label;
+import jxl.write.*;
+import java.awt.Color;
+import groovy.json.JsonSlurper;
+import groovy.json.*;
+import org.json.JSONObject;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import groovy.json.JsonSlurper;
+
+def myTestCase = context.testCase
+propTestStep = myTestCase.getTestStepByName("Properties") // get the Property TestStep object
+headers=[]
+
+//Covert the week days into a long digit
+//def date1 = "May 16, 2025"
+//def date2 = "May 20, 2025"
+def week_start_date = propTestStep.getPropertyValue("Week_start_date").toString();
+log.info("Week_start_date: " + propTestStep.getPropertyValue("Week_start_date").toString());
+def week_end_date = propTestStep.getPropertyValue("Week_end_date").toString();
+log.info("Week_end_date: " + propTestStep.getPropertyValue("Week_end_date").toString());
+
+def format = new SimpleDateFormat("MMMM dd, yyyy")
+def longDate1 = format.parse(week_start_date).time
+def longDate2 = format.parse(week_end_date).time
+
+log.info(longDate1)
+log.info(longDate2)
+
+def startDate = longDate1
+def endDate = longDate2
+def days = 5
+def dateFormat = new SimpleDateFormat("MMMM dd, yyyy hh:mm a")
+
+def workbook = new XSSFWorkbook(new FileInputStream("C:/Users/Azedd/OneDrive/Desktop/RunTests.xlsx"))
+def sheet = workbook.getSheetAt(0)
+
+def rowIndex = sheet.getLastRowNum() + 2 // Start from the last row and leave a blank row
+
+(0..&lt;days).each { day ->
+    def currentStartDate = new Date(startDate + (day * 24 * 60 * 60 * 1000))
+    def currentEndDate = new Date(startDate + (day * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000 + 55 * 60 * 1000))
+
+    def startTime = dateFormat.format(currentStartDate) + " to " + dateFormat.format(currentEndDate);
+    log.info("Start: ${currentStartDate.time}, End: ${currentEndDate.time} - ${startTime}")
+    propTestStep.setPropertyValue("earliest_start_date", "${currentStartDate.time}")
+    propTestStep.setPropertyValue("latest_start_date", "${currentEndDate.time}")
+    
+    // Run the step 
+    testRunner.runTestStepByName("GetPlanTestResultsGasPricing")
+    def response = context.expand('${GetPlanTestResultsGasPricing#Response}').toString()
+    def slurper = new JsonSlurper()
+    def json = slurper.parseText(response)
+    JSONObject JsonObj = new JSONObject(json)
+
+    //Run Azure to get the number of test cases.
+    testRunner.runTestStepByName("getTCsNumGasPricingAzure")
+    def responseAzure = context.expand('${getTCsNumGasPricingAzure#Response}').toString()
+    def parser = new JsonSlurper()
+    def jsonAzure = parser.parseText(responseAzure)
+    def countAzure = jsonAzure.count
+    log.info("TestCaseNum: " + countAzure);
+
+    // Populate data
+    def planName = json.test_results[0].plan_name
+    def totalCases = json.number_of_runs
+    def passCount = json.test_results.count { it.outcome == "passed" }
+    def failCount = json.test_results.count { it.outcome == "failed" }
+    def notRunCount = json.test_results.count { it.outcome == "stopped" }
+    def environmentName = json.test_results[0].environment_name
+
+    // Create a new row and populate it
+    def row = sheet.createRow(rowIndex++)
+    def inputDate = dateFormat.format(currentStartDate);
+    def convertedDate = convertDateFormat(inputDate)
+    row.createCell(2).setCellValue(convertedDate)  
+    row.createCell(3).setCellValue(planName)
+    row.createCell(4).setCellValue(countAzure)
+    row.createCell(5).setCellValue(totalCases)
+    row.createCell(6).setCellValue(passCount)
+    row.createCell(7).setCellValue(failCount)
+    row.createCell(8).setCellValue(notRunCount)
+    row.createCell(9).setCellValue(environmentName)
+
+    def testNames = JsonObj.test_results.collect { it.test_name }
+
+    testNames.each { name ->
+        log.info("Test Name: " + name)
+    } 
+
+    log.info "___________________________________________________________________________________________________________________________";
+
+    // Apply styles
+    if (failCount > 0) {
+        row.getCell(7).setCellStyle(createCellStyle(workbook, IndexedColors.RED))
+    }
+    if (passCount > 0) {
+        row.getCell(6).setCellStyle(createCellStyle(workbook, IndexedColors.LIME))
+    }
+    if (notRunCount > 0) {
+        row.getCell(8).setCellStyle(createCellStyle(workbook, IndexedColors.GREY))
+    }
+}
+
+def createCellStyle(workbook, color) {
+    def style = workbook.createCellStyle()
+    style.setFillForegroundColor(color.index)
+    style.setFillPattern(FillPatternType.SOLID_FOREGROUND)
+    return style
+}
+
+FileOutputStream fileOut = new FileOutputStream("C:/Users/Azedd/OneDrive/Desktop/RunTests.xlsx")
+workbook.write(fileOut)
+fileOut.close()
+workbook.close()
+
+//Date conversion
+import java.text.SimpleDateFormat
+
+def convertDateFormat(String inputDate) {
+    def originalFormat = new SimpleDateFormat("MMMM dd, yyyy hh:mm a")
+    def targetFormat = new SimpleDateFormat("dd MMMM yyyy")
+    
+    def date = originalFormat.parse(inputDate)
+    return targetFormat.format(date)
+}
+</script></con:config></con:testStep><con:testStep type="groovy" name="forecastPowerRegression" id="fc4708b1-dc98-4ec0-b311-496cb4d1a341"><con:settings/><con:config><script>import java.text.SimpleDateFormat
+import com.eviware.soapui.support.XmlHolder
+import java.io.File;
+import java.io.IOException;
+import jxl.*;
+import jxl.read.biff.BiffException;
+import jxl.write.WritableCellFormat;
+import jxl.write.WritableFont;
+import jxl.format.Colour;
+import jxl.format.Pattern;
+import jxl.write.Label;
+import jxl.write.*;
+import java.awt.Color;
+import groovy.json.JsonSlurper;
+import groovy.json.*;
+import org.json.JSONObject;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import groovy.json.JsonSlurper;
+
+def myTestCase = context.testCase
+propTestStep = myTestCase.getTestStepByName("Properties") // get the Property TestStep object
+headers=[]
+
+//Covert the week days into a long digit
+//def date1 = "May 16, 2025"
+//def date2 = "May 20, 2025"
+def week_start_date = propTestStep.getPropertyValue("Week_start_date").toString();
+log.info("Week_start_date: " + propTestStep.getPropertyValue("Week_start_date").toString());
+def week_end_date = propTestStep.getPropertyValue("Week_end_date").toString();
+log.info("Week_end_date: " + propTestStep.getPropertyValue("Week_end_date").toString());
+
+def format = new SimpleDateFormat("MMMM dd, yyyy")
+def longDate1 = format.parse(week_start_date).time
+def longDate2 = format.parse(week_end_date).time
+
+log.info(longDate1)
+log.info(longDate2)
+
+def startDate = longDate1
+def endDate = longDate2
+def days = 5
+def dateFormat = new SimpleDateFormat("MMMM dd, yyyy hh:mm a")
+
+def workbook = new XSSFWorkbook(new FileInputStream("C:/Users/Azedd/OneDrive/Desktop/RunTests.xlsx"))
+def sheet = workbook.getSheetAt(0)
+
+def rowIndex = sheet.getLastRowNum() + 2 // Start from the last row and leave a blank row
+
+(0..&lt;days).each { day ->
+    def currentStartDate = new Date(startDate + (day * 24 * 60 * 60 * 1000))
+    def currentEndDate = new Date(startDate + (day * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000 + 55 * 60 * 1000))
+
+    def startTime = dateFormat.format(currentStartDate) + " to " + dateFormat.format(currentEndDate);
+    log.info("Start: ${currentStartDate.time}, End: ${currentEndDate.time} - ${startTime}")
+    propTestStep.setPropertyValue("earliest_start_date", "${currentStartDate.time}")
+    propTestStep.setPropertyValue("latest_start_date", "${currentEndDate.time}")
+    
+    // Run the step 
+    testRunner.runTestStepByName("GetPlanTestResultsPowerForecast")
+
+    def response = context.expand('${GetPlanTestResultsPowerForecast#Response}').toString()
+    def slurper = new JsonSlurper()
+    def json = slurper.parseText(response)
+    JSONObject JsonObj = new JSONObject(json)
+
+    //Run Azure to get the number of test cases.
+    testRunner.runTestStepByName("getTCsNumPowerForecastAzure")
+    def responseAzure = context.expand('${getTCsNumPowerForecastAzure#Response}').toString()
+    def parser = new JsonSlurper()
+    def jsonAzure = parser.parseText(responseAzure)
+    def countAzure = jsonAzure.count
+    log.info("TestCaseNum: " + countAzure);
+
+    // Populate data
+    def planName = json.test_results[0].plan_name
+    def totalCases = json.number_of_runs
+    def passCount = json.test_results.count { it.outcome == "passed" }
+    def failCount = json.test_results.count { it.outcome == "failed" }
+    def notRunCount = json.test_results.count { it.outcome == "stopped" }
+    def environmentName = json.test_results[0].environment_name
+
+    // Create a new row and populate it
+    def row = sheet.createRow(rowIndex++)
+    def inputDate = dateFormat.format(currentStartDate);
+    def convertedDate = convertDateFormat(inputDate)
+    row.createCell(2).setCellValue(convertedDate)  
+    row.createCell(3).setCellValue(planName)
+    row.createCell(4).setCellValue(countAzure)
+    row.createCell(5).setCellValue(totalCases)
+    row.createCell(6).setCellValue(passCount)
+    row.createCell(7).setCellValue(failCount)
+    row.createCell(8).setCellValue(notRunCount)
+    row.createCell(9).setCellValue(environmentName)
+
+    def testNames = JsonObj.test_results.collect { it.test_name }
+
+    testNames.each { name ->
+        log.info("Test Name: " + name)
+    } 
+
+    log.info "___________________________________________________________________________________________________________________________";
+
+    // Apply styles
+    if (failCount > 0) {
+        row.getCell(7).setCellStyle(createCellStyle(workbook, IndexedColors.RED))
+    }
+    if (passCount > 0) {
+        row.getCell(6).setCellStyle(createCellStyle(workbook, IndexedColors.LIME))
+    }
+    if (notRunCount > 0) {
+        row.getCell(8).setCellStyle(createCellStyle(workbook, IndexedColors.GREY))
+    }
+}
+
+def createCellStyle(workbook, color) {
+    def style = workbook.createCellStyle()
+    style.setFillForegroundColor(color.index)
+    style.setFillPattern(FillPatternType.SOLID_FOREGROUND)
+    return style
+}
+
+FileOutputStream fileOut = new FileOutputStream("C:/Users/Azedd/OneDrive/Desktop/RunTests.xlsx")
+workbook.write(fileOut)
+fileOut.close()
+workbook.close()
+
+//Date conversion
+import java.text.SimpleDateFormat
+
+def convertDateFormat(String inputDate) {
+    def originalFormat = new SimpleDateFormat("MMMM dd, yyyy hh:mm a")
+    def targetFormat = new SimpleDateFormat("dd MMMM yyyy")
+    
+    def date = originalFormat.parse(inputDate)
+    return targetFormat.format(date)
+}
+</script></con:config></con:testStep><con:testStep type="groovy" name="pricingPowerRegression" id="d0fe3d8e-1eb4-4469-af53-b03ca4500463"><con:settings/><con:config><script>import java.text.SimpleDateFormat
+import com.eviware.soapui.support.XmlHolder
+import java.io.File;
+import java.io.IOException;
+import jxl.*;
+import jxl.read.biff.BiffException;
+import jxl.write.WritableCellFormat;
+import jxl.write.WritableFont;
+import jxl.format.Colour;
+import jxl.format.Pattern;
+import jxl.write.Label;
+import jxl.write.*;
+import java.awt.Color;
+import groovy.json.JsonSlurper;
+import groovy.json.*;
+import org.json.JSONObject;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import groovy.json.JsonSlurper;
+
+def myTestCase = context.testCase
+propTestStep = myTestCase.getTestStepByName("Properties") // get the Property TestStep object
+headers=[]
+
+//Covert the week days into a long digit
+//def date1 = "May 16, 2025"
+//def date2 = "May 20, 2025"
+def week_start_date = propTestStep.getPropertyValue("Week_start_date").toString();
+log.info("Week_start_date: " + propTestStep.getPropertyValue("Week_start_date").toString());
+def week_end_date = propTestStep.getPropertyValue("Week_end_date").toString();
+log.info("Week_end_date: " + propTestStep.getPropertyValue("Week_end_date").toString());
+
+def format = new SimpleDateFormat("MMMM dd, yyyy")
+def longDate1 = format.parse(week_start_date).time
+def longDate2 = format.parse(week_end_date).time
+
+log.info(longDate1)
+log.info(longDate2)
+
+def startDate = longDate1
+def endDate = longDate2
+def days = 5
+def dateFormat = new SimpleDateFormat("MMMM dd, yyyy hh:mm a")
+
+def workbook = new XSSFWorkbook(new FileInputStream("C:/Users/Azedd/OneDrive/Desktop/RunTests.xlsx"))
+def sheet = workbook.getSheetAt(0)
+
+def rowIndex = sheet.getLastRowNum() + 2 // Start from the last row and leave a blank row
+
+(0..&lt;days).each { day ->
+    def currentStartDate = new Date(startDate + (day * 24 * 60 * 60 * 1000))
+    def currentEndDate = new Date(startDate + (day * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000 + 55 * 60 * 1000))
+
+    def startTime = dateFormat.format(currentStartDate) + " to " + dateFormat.format(currentEndDate);
+    log.info("Start: ${currentStartDate.time}, End: ${currentEndDate.time} - ${startTime}")
+    propTestStep.setPropertyValue("earliest_start_date", "${currentStartDate.time}")
+    propTestStep.setPropertyValue("latest_start_date", "${currentEndDate.time}")
+    
+    // Run the step 
+    testRunner.runTestStepByName("GetPlanTestResultsPowerPricing")
+
+    def response = context.expand('${GetPlanTestResultsPowerPricing#Response}').toString()
+    def slurper = new JsonSlurper()
+    def json = slurper.parseText(response)
+    JSONObject JsonObj = new JSONObject(json)
+
+    //Run Azure to get the number of test cases.
+    testRunner.runTestStepByName("getTCsNumPowerPricingAzure")
+    def responseAzure = context.expand('${getTCsNumPowerPricingAzure#Response}').toString()
+    def parser = new JsonSlurper()
+    def jsonAzure = parser.parseText(responseAzure)
+    def countAzure = jsonAzure.count
+    log.info("TestCaseNum: " + countAzure);
+
+    // Populate data
+    def planName = json.test_results[0].plan_name
+    def totalCases = json.number_of_runs
+    def passCount = json.test_results.count { it.outcome == "passed" }
+    def failCount = json.test_results.count { it.outcome == "failed" }
+    def notRunCount = json.test_results.count { it.outcome == "stopped" }
+    def environmentName = json.test_results[0].environment_name
+
+    // Create a new row and populate it
+    def row = sheet.createRow(rowIndex++)
+    def inputDate = dateFormat.format(currentStartDate);
+    def convertedDate = convertDateFormat(inputDate)
+    row.createCell(2).setCellValue(convertedDate)  
+    row.createCell(3).setCellValue(planName)
+    row.createCell(4).setCellValue(countAzure)
+    row.createCell(5).setCellValue(totalCases)
+    row.createCell(6).setCellValue(passCount)
+    row.createCell(7).setCellValue(failCount)
+    row.createCell(8).setCellValue(notRunCount)
+    row.createCell(9).setCellValue(environmentName)
+
+    def testNames = JsonObj.test_results.collect { it.test_name }
+
+    testNames.each { name ->
+        log.info("Test Name: " + name)
+    } 
+
+    log.info "___________________________________________________________________________________________________________________________";
+
+    // Apply styles
+    if (failCount > 0) {
+        row.getCell(7).setCellStyle(createCellStyle(workbook, IndexedColors.RED))
+    }
+    if (passCount > 0) {
+        row.getCell(6).setCellStyle(createCellStyle(workbook, IndexedColors.LIME))
+    }
+    if (notRunCount > 0) {
+        row.getCell(8).setCellStyle(createCellStyle(workbook, IndexedColors.GREY))
+    }
+}
+
+def createCellStyle(workbook, color) {
+    def style = workbook.createCellStyle()
+    style.setFillForegroundColor(color.index)
+    style.setFillPattern(FillPatternType.SOLID_FOREGROUND)
+    return style
+}
+
+FileOutputStream fileOut = new FileOutputStream("C:/Users/Azedd/OneDrive/Desktop/RunTests.xlsx")
+workbook.write(fileOut)
+fileOut.close()
+workbook.close()
+
+//Date conversion
+import java.text.SimpleDateFormat
+
+def convertDateFormat(String inputDate) {
+    def originalFormat = new SimpleDateFormat("MMMM dd, yyyy hh:mm a")
+    def targetFormat = new SimpleDateFormat("dd MMMM yyyy")
+    
+    def date = originalFormat.parse(inputDate)
+    return targetFormat.format(date)
+}
+</script></con:config></con:testStep><con:testStep type="groovy" name="finalTidyUp" id="75e0426d-9fea-4c0b-ada1-842a3d9cefdd"><con:settings/><con:config><script>import org.apache.poi.ss.usermodel.*
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+
+def filePath = "C:/Users/Azedd/OneDrive/Desktop/RunTests.xlsx"
+
+def workbook = new XSSFWorkbook(new FileInputStream(filePath))
+def sheet = workbook.getSheet("Gorilla Regression Results")
+
+def row = sheet.getRow(2) // Row 2 (0-indexed)
+def cellStyle = workbook.createCellStyle()
+def font = workbook.createFont()
+font.setBold(true)
+cellStyle.setFont(font)
+cellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex())
+cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND)
+
+row.cellIterator().each { cell ->
+    cell.setCellStyle(cellStyle)
+    sheet.autoSizeColumn(cell.getColumnIndex())
+}
+
+FileOutputStream outputStream = new FileOutputStream(filePath)
+workbook.write(outputStream)
+outputStream.close()
+workbook.close()
+</script></con:config></con:testStep><con:testStep type="groovy" name="CenterText" id="e308834c-0544-41ee-bf0c-d541eed4b428"><con:settings/><con:config><script>
+import org.apache.poi.ss.usermodel.*
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import java.io.FileInputStream
+import java.io.FileOutputStream
+
+def centraliseTextInColumns(String filePath) {
+    FileInputStream fis = new FileInputStream(filePath)
+    Workbook workbook = new XSSFWorkbook(fis)
+    Sheet sheet = workbook.getSheetAt(0)
+
+    def columnsToCentralise = [4, 5, 6, 7, 8, 9] // E, F, G, H, I, J
+
+    columnsToCentralise.each { colIndex ->
+        for (int rowIndex = 0; rowIndex &lt;= sheet.getLastRowNum(); rowIndex++) {
+            Row row = sheet.getRow(rowIndex) ?: sheet.createRow(rowIndex)
+            Cell cell = row.getCell(colIndex) ?: row.createCell(colIndex)
+            CellStyle style = workbook.createCellStyle()
+            style.cloneStyleFrom(cell.getCellStyle())
+            style.setAlignment(HorizontalAlignment.CENTER)
+            cell.setCellStyle(style)
+        }
+    }
+
+    fis.close()
+
+    FileOutputStream fos = new FileOutputStream(filePath)
+    workbook.write(fos)
+    fos.close()
+    workbook.close()
+}
+
+centraliseTextInColumns("C:/Users/Azedd/OneDrive/Desktop/RunTests.xlsx")
+</script></con:config></con:testStep><con:properties><con:property><con:name>start1</con:name><con:value>3837906399600000</con:value></con:property><con:property><con:name>end1</con:name><con:value>2567826403200000</con:value></con:property><con:property><con:name>start2</con:name><con:value>3837906486000000</con:value></con:property><con:property><con:name>end2</con:name><con:value>2567826489600000</con:value></con:property><con:property><con:name>start3</con:name><con:value>3837906572400000</con:value></con:property><con:property><con:name>end3</con:name><con:value>2567826576000000</con:value></con:property><con:property><con:name>start4</con:name><con:value>3837906658800000</con:value></con:property><con:property><con:name>end4</con:name><con:value>2567826662400000</con:value></con:property><con:property><con:name>start5</con:name><con:value>3837906745200000</con:value></con:property><con:property><con:name>end5</con:name><con:value>2567826748800000</con:value></con:property><con:property><con:name>Day1Start</con:name><con:value>1746444000000</con:value></con:property><con:property><con:name>Day1End</con:name><con:value>1746429300000</con:value></con:property><con:property><con:name>Day2Start</con:name><con:value>1746530400000</con:value></con:property><con:property><con:name>Day2End</con:name><con:value>1746515700000</con:value></con:property><con:property><con:name>Day3Start</con:name><con:value>1746616800000</con:value></con:property><con:property><con:name>Day3End</con:name><con:value>1746602100000</con:value></con:property><con:property><con:name>Day4Start</con:name><con:value>1746703200000</con:value></con:property><con:property><con:name>Day4End</con:name><con:value>1746688500000</con:value></con:property><con:property><con:name>Day5Start</con:name><con:value>1746789600000</con:value></con:property><con:property><con:name>Day5End</con:name><con:value>1746774900000</con:value></con:property><con:property><con:name>2025-05-06_start</con:name><con:value>1746530400000</con:value></con:property><con:property><con:name>2025-05-06_end</con:name><con:value>1746515700000</con:value></con:property><con:property><con:name>2025-05-07_start</con:name><con:value>1746616800000</con:value></con:property><con:property><con:name>2025-05-07_end</con:name><con:value>1746602100000</con:value></con:property><con:property><con:name>2025-05-08_start</con:name><con:value>1746703200000</con:value></con:property><con:property><con:name>2025-05-08_end</con:name><con:value>1746688500000</con:value></con:property><con:property><con:name>2025-05-09_start</con:name><con:value>1746789600000</con:value></con:property><con:property><con:name>2025-05-09_end</con:name><con:value>1746774900000</con:value></con:property><con:property><con:name>2025-05-10_start</con:name><con:value>1746876000000</con:value></con:property><con:property><con:name>2025-05-10_end</con:name><con:value>1746861300000</con:value></con:property><con:property><con:name>start_1</con:name><con:value>1746444000000</con:value></con:property><con:property><con:name>end_1</con:name><con:value>1746429300000</con:value></con:property><con:property><con:name>start_2</con:name><con:value>1746530400000</con:value></con:property><con:property><con:name>end_2</con:name><con:value>1746515700000</con:value></con:property><con:property><con:name>start_3</con:name><con:value>1746616800000</con:value></con:property><con:property><con:name>end_3</con:name><con:value>1746602100000</con:value></con:property><con:property><con:name>start_4</con:name><con:value>1746703200000</con:value></con:property><con:property><con:name>end_4</con:name><con:value>1746688500000</con:value></con:property><con:property><con:name>start_5</con:name><con:value>1746789600000</con:value></con:property><con:property><con:name>end_5</con:name><con:value>1746774900000</con:value></con:property><con:property><con:name>CurrentStartDate_0</con:name><con:value>April 28, 2025 12:00 am</con:value></con:property><con:property><con:name>CurrentEndDate_0</con:name><con:value>April 28, 2025 07:55 am</con:value></con:property><con:property><con:name>CurrentStartDate_1</con:name><con:value>April 29, 2025 12:00 am</con:value></con:property><con:property><con:name>CurrentEndDate_1</con:name><con:value>April 29, 2025 07:55 am</con:value></con:property><con:property><con:name>CurrentStartDate_2</con:name><con:value>April 30, 2025 12:00 am</con:value></con:property><con:property><con:name>CurrentEndDate_2</con:name><con:value>April 30, 2025 07:55 am</con:value></con:property><con:property><con:name>CurrentStartDate_3</con:name><con:value>May 01, 2025 12:00 am</con:value></con:property><con:property><con:name>CurrentEndDate_3</con:name><con:value>May 01, 2025 07:55 am</con:value></con:property><con:property><con:name>CurrentStartDate_4</con:name><con:value>May 02, 2025 12:00 am</con:value></con:property><con:property><con:name>CurrentEndDate_4</con:name><con:value>May 02, 2025 07:55 am</con:value></con:property><con:property><con:name>osName</con:name><con:value>Windows 11</con:value></con:property><con:property><con:name>osVersion</con:name><con:value>10.0</con:value></con:property><con:property><con:name>javaVersion</con:name><con:value>17.0.12</con:value></con:property><con:property><con:name>userHome</con:name><con:value>C:\Users\amargani</con:value></con:property><con:property><con:name>userName</con:name><con:value>amargani</con:value></con:property><con:property><con:name>currentDate</con:name><con:value>2025-05-21</con:value></con:property></con:properties><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:properties><con:property><con:name>Properties</con:name><con:value>{day4_end=1746774900000, day5_start=1746746400000, day2_start=1746487200000, day3_end=1746774900000, day5_end=1746774900000, day1_end=1746774900000, day2_end=1746774900000, day3_start=1746573600000, day1_start=1746400800000, day4_start=1746660000000}</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:jmsConnectionContainer/><con:oAuth2ProfileContainer><con:oAuth2Profile><con:name>Profile 1</con:name><con:accessToken>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:accessToken><con:accessTokenPosition>HEADER</con:accessTokenPosition><con:oAuth2Flow>AUTHORIZATION_CODE_GRANT</con:oAuth2Flow><con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod><con:accessTokenStatus>UNKNOWN</con:accessTokenStatus><con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus></con:oAuth2Profile><con:oAuth2Profile><con:name>MyTest</con:name><con:clientID>amargani</con:clientID><con:clientSecret>l99e5TkzdRVpFs0F18BrZOHUFFLH6G90ofIvQiJ2Lu5mjExsjxrOJQQJ99BFACAAAAAtfrhDAAASAZDO1rLR</con:clientSecret><con:authorizationURI>https://app.vssps.visualstudio.com/oauth2/authorize&amp;response_type=Assertion</con:authorizationURI><con:accessTokenURI>https://app.vssps.visualstudio.com/oauth2/token?client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&amp;grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer</con:accessTokenURI><con:redirectURI>https://app.vssps.visualstudio.com/oauth2/authorize&amp;response_type=Assertion</con:redirectURI><con:accessTokenPosition>HEADER</con:accessTokenPosition><con:oAuth2Flow>CLIENT_CREDENTIALS_GRANT</con:oAuth2Flow><con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod><con:accessTokenStatus>UNKNOWN</con:accessTokenStatus></con:oAuth2Profile></con:oAuth2ProfileContainer><con:oAuth1ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:authRepository/><con:tags/></con:soapui-project>
