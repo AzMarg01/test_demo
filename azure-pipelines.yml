@@ -1,44 +1,62 @@
-trigger:
-- main
+trigger: none
+pr: none
 
 pool:
-  name: Default  # This is your self-hosted agent pool name
+  vmImage: 'ubuntu-latest'
 
 variables:
-  resultsFolder: '$(Build.ArtifactStagingDirectory)/results'
+  soapui_project_path: 'soapui-project-remove/CountryCurrencyProject-soapui-project.xml'
+  soapui_install_dir: '$(Build.SourcesDirectory)/soapui'
+  report_output_dir: '$(Build.ArtifactStagingDirectory)/soapui-reports'
 
-steps:
-- task: PowerShell@2
-  displayName: 'Run SoapUI Tests'
-  inputs:
-    targetType: 'inline'
-    script: |
-      & 'C:\Program Files\SmartBear\SoapUI-5.7.0\bin\testrunner.bat' `
-      -j -f $(resultsFolder) `
-      $(Build.SourcesDirectory)\tests\soapui\MyProject.xml
+stages:
+- stage: RunSoapUITests
+  displayName: 'Execute SoapUI Tests and Publish Report'
+  jobs:
+  - job: SoapUITests
+    displayName: 'Run SoapUI Project'
+    steps:
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Test Results (.xlsx)'
-  inputs:
-    PathtoPublish: '$(resultsFolder)'
-    ArtifactName: 'SoapUIResults'
+    # ✅ Explicitly install Java 11
+    - task: JavaToolInstaller@0
+      inputs:
+        versionSpec: '11'
+        jdkArchitectureOption: 'x64'
+        jdkSourceOption: 'PreInstalled'
+      displayName: 'Install Java 11'
 
-- task: PowerShell@2
-  displayName: 'Convert XLSX to HTML'
-  inputs:
-    targetType: 'inline'
-    script: |
-      $excel = New-Object -ComObject Excel.Application
-      $excel.Visible = $false
-      $workbook = $excel.Workbooks.Open("$(resultsFolder)\results.xlsx")
-      $worksheet = $workbook.Sheets.Item(1)
-      $htmlPath = "$(resultsFolder)\results.html"
-      $worksheet.SaveAs($htmlPath, 44)  # 44 = xlHtml
-      $workbook.Close($false)
-      $excel.Quit()
+    # ✅ Verify Java is now Java 11
+    - script: |
+        echo "✅ Verifying Java version..."
+        java -version
+        echo "✅ JAVA_HOME is set to: $JAVA_HOME"
+      displayName: 'Verify Java 11'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish HTML Report'
-  inputs:
-    PathtoPublish: '$(resultsFolder)\results.html'
-    ArtifactName: 'SoapUIHTMLReport'
+    # ✅ Download and extract SoapUI from SmartBear’s official S3
+    - script: |
+        echo "⬇️ Downloading SoapUI..."
+        wget https://s3.amazonaws.com/downloads.eviware/soapuios/5.7.0/SoapUI-5.7.0-linux-bin.tar.gz
+        mkdir -p $(soapui_install_dir)
+        tar -xvzf SoapUI-5.7.0-linux-bin.tar.gz -C $(soapui_install_dir) --strip-components=1
+      displayName: 'Download & Extract SoapUI'
+
+    # ✅ Check project file exists
+    - script: |
+        echo "📁 Checking SoapUI project file:"
+        ls -l "$(Build.SourcesDirectory)/$(soapui_project_path)"
+      displayName: 'Check SoapUI Project File'
+
+    # ✅ Run SoapUI Tests
+    - script: |
+        echo "🚀 Running SoapUI Project..."
+        chmod +x $(soapui_install_dir)/bin/testrunner.sh
+        $(soapui_install_dir)/bin/testrunner.sh "$(Build.SourcesDirectory)/$(soapui_project_path)" -s "CountryInfoServiceSoapBinding12 TestSuite" -r -j -f"$(report_output_dir)"
+      displayName: 'Execute SoapUI Tests with Java 11'
+
+    # ✅ Publish reports
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathToPublish: '$(report_output_dir)'
+        artifactName: 'soapui-test-results'
+        publishLocation: 'Container'
+      displayName: 'Publish SoapUI Test Results'
